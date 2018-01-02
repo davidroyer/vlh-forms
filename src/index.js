@@ -14,6 +14,33 @@ import FormStepper from './components/FormStepper.vue'
 import StepFormControls from './components/StepFormControls.vue'
 import './vlh-forms.scss'
 
+
+const Fuex = {
+  debug: true,
+  state: {
+    currentStep: 1,
+    message: 'Fuex Message!'
+  },
+  setMessageAction (newValue) {
+    if (this.debug) console.log('setMessageAction triggered with', newValue)
+    this.state.message = newValue
+  },
+  clearMessageAction () {
+    if (this.debug) console.log('clearMessageAction triggered')
+    this.state.message = ''
+  },
+  handlePreviousStep (currentStep) {
+    if (this.debug) console.log('previous tep triggered with', currentStep)
+    if (this.state.currentStep > 1) {
+      this.state.currentStep = this.state.currentStep - 1
+    }
+  },
+  handleNextStep (currentStep) {
+    if (this.debug) console.log('next step triggered with', currentStep)
+    this.state.currentStep = this.state.currentStep + 1
+  },
+}
+
 const VlhForms = {
   install(Vue, options) {
     Vue.component(FormSelect.name, FormSelect);
@@ -40,6 +67,9 @@ const VlhForms = {
         }
     })
 
+    Object.defineProperty(Vue.prototype, '$Fuex', {
+      get () { return Fuex }
+    })
 
   	Vue.mixin({
       computed: {
@@ -55,8 +85,10 @@ const VlhForms = {
           if (this.programs) {
             return this.getDegreeLevelObject()
           }
-
         }
+      },
+      mounted () {
+        console.log(this.$Fuex)
       }
     });
 

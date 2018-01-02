@@ -14,6 +14,9 @@
         <router-link to="/custom-select-text">Custom Select Text</router-link>
       </nav>
     </div>
+    <h2>{{step}}</h2>
+    <button @click="$Fuex.handlePreviousStep($Fuex.state.currentStep)">Previous</button>
+    <button @click="$Fuex.handleNextStep($Fuex.state.currentStep)">Next</button>
     <transition name="slide-fade" mode="out-in" appear>
       <h2 key="chooseExample" v-if="$route.path == '/'" class="currentExample">Choose an Example</h2>
       <h2 v-else :key="$route.fullPath" class="currentExample">
@@ -30,10 +33,22 @@
 
 <script>
 import axios from 'axios'
-
+// data () {
+//   return {
+//     formState: Fuex.state
+//   }
+// },
 export default {
   mounted () {
     this.registerZipValidator()
+  },
+  computed: {
+    formState () {
+      return this.$Fuex.state
+    },
+    step () {
+      return this.$Fuex.state.currentStep
+    }
   },
   methods: {
     registerZipValidator () {
