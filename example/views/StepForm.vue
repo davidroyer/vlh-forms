@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="example stepForm">
-
     <div class="stepsWrapper">
+
       <transition name="slide-fade" mode="out-in" appear>
         <form-step v-if="currentStep == 1" :key="1">
          <form-select
@@ -14,6 +14,7 @@
 
           <form-select
             name="program"
+            ref="progselect"
             optional v-model="submit.program"
             v-show="selectedDegreeLevel"
             transition="vertical-slide"
@@ -24,7 +25,7 @@
         </form-step>
 
         <form-step v-if="currentStep == 2" :key="2">
-         <form-first-name optional v-model="submit.firstName"></form-first-name>
+         <form-first-name ref="fn" optional v-model="submit.firstName"></form-first-name>
          <form-last-name optional v-model="submit.lastName"></form-last-name>
         </form-step>
 
@@ -50,6 +51,9 @@
 
 <script>
 export default {
+  methods: {
+
+  }
 
 }
 </script>

@@ -69,84 +69,83 @@ export default {
 </script>
 
 <style lang="scss">
-@import './example.scss';
+  @import './example.scss';
 
-.stepsWrapper {
-  position: relative;
-}
-.list-complete-leave-active {
-  position: absolute;
-}
-
-/* NOTE: StepForm */
-.stepFormWrapper {
-    display: flex;
-    flex-flow: row wrap;
-}
-.stepFormControls {
-    flex-basis: 100%;
-    display: flex;
-    flex-flow: row wrap;
-}
-// .form-transtiion-group {
-//   // display: flex;
-// }
-// .form-item {
-//   // transition: all .52s;
-//   transition: all .4s;
-//   // display: inline-block;
-//   margin-right: 10px;
-//   width: 100%;
-//   top: 0;
-// }
-.test-transition-enter, .test-transition-leave-to
-/* .test-transition-leave-active below version 2.1.8 */ {
-  opacity: 0;
-
-  transform: translateY(-10px);
-  // transform: translateY(-10px);
-
-}
-.test-transition-leave-active {
-  position: absolute;
-  // transition: all .2s;
-
-}
-.testTranstitionWrapper {
-  position: relative;
-}
-.test-transition-move {
-  // transition: all 1s;
-}
-
-.header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  padding: 1em;
-}
-.navigation {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-
-  a {
-  padding: .5em 1.25em;
-  margin: .5em;
-  border-radius: 3px;
-  transition: all .35s ease;
-  color: #202020;
-  font-weight: 500;
-
-  &.router-link-exact-active.router-link-active {
-    background: #202020;
-    color: white;
+  .stepsWrapper {
+    position: relative;
   }
-}
+  .list-complete-leave-active {
+    position: absolute;
+  }
 
+  /* NOTE: StepForm */
+  .stepFormWrapper {
+      display: flex;
+      flex-flow: row wrap;
+  }
+  .stepFormControls {
+      flex-basis: 100%;
+      display: flex;
+      flex-flow: row wrap;
+  }
+  // .form-transtiion-group {
+  //   // display: flex;
+  // }
+  // .form-item {
+  //   // transition: all .52s;
+  //   transition: all .4s;
+  //   // display: inline-block;
+  //   margin-right: 10px;
+  //   width: 100%;
+  //   top: 0;
+  // }
+  .test-transition-enter, .test-transition-leave-to
+  /* .test-transition-leave-active below version 2.1.8 */ {
+    opacity: 0;
 
-}
+    transform: translateY(-10px);
+    // transform: translateY(-10px);
+
+  }
+  .test-transition-leave-active {
+    position: absolute;
+    // transition: all .2s;
+
+  }
+  .testTranstitionWrapper {
+    position: relative;
+  }
+  .test-transition-move {
+    // transition: all 1s;
+  }
+
+  .header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 1em;
+  }
+  .navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    a {
+    padding: .5em 1.25em;
+    margin: .5em;
+    border-radius: 3px;
+    transition: all .35s ease;
+    color: #202020;
+    font-weight: 500;
+
+      &.router-link-exact-active.router-link-active {
+        background: #202020;
+        color: white;
+      }
+    }
+  }
+
 
 </style>

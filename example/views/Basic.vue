@@ -15,7 +15,7 @@
     <form-phone v-model="submit.phone" validation="required"></form-phone>
     <form-email v-model="submit.email" validation="required|email"></form-email>
     <form-submit-button :disableOnErrors="false" text="Get Info"></form-submit-button>
-    <form-legal-text school="Alvernia University" fontSize="1.1em" textColor="blue"></form-legal-text>
+    <form-legal-text school="Alvernia University"></form-legal-text>
   </form>
 </template>
 
@@ -27,13 +27,15 @@
     mounted() {
       this.$nextTick(function () {
         this.addClass()
+        this.$bus.$emit('set-focus', 'firstName')
       })
+
     },
     methods: {
       addClass () {
         let Form = document.getElementById('tlh-form')
         if (Form && this.helpTextColor ) {
-          Form.classList.add(this.helpTextColor);
+          // Form.classList.add(this.helpTextColor);
         }
       }
     }

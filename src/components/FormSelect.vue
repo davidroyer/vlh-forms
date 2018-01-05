@@ -87,7 +87,7 @@ export default {
   mounted () {
     this.selectedOption = this.value
     // this.handleFocusOnEnter()
-    this.focusListener()
+    // this.focusListener()
   },
   computed: {
     fieldId () {

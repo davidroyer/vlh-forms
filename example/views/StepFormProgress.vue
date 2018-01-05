@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="example stepForm">
+  <form id="tlh-form" class="example basic" @submit.prevent="handleFormSubmission">
     <div class="stepsWrapper">
       <div class="stepFormProgress">
         <template v-for="(step, index) in totalSteps">
@@ -51,7 +51,7 @@
      </step-form-controls>
 
      <form-legal-text></form-legal-text>
-  </div>
+  </form>
 </template>
 
 <script>

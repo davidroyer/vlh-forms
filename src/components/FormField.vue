@@ -6,10 +6,10 @@
        v-validate="fieldValidation"
        class="input"
        :name="name"
+       :ref="name"
        :autocomplete="autocomplete"
        :pattern="pattern"
        :id="fieldId"
-       :ref="name"
        :type="type"
        :placeholder="fieldPlaceholder"
        :value="value"
@@ -118,16 +118,19 @@ export default {
 
   mounted () {
     let vm = this
-    let Refs = vm.$refs
+    // let Refs = vm.$refs
 
     this.$bus.$on('set-focus', name => {
-      if (vm.$refs[name]) {
-        setTimeout(() => {
-          console.log('INSIDE TIMEOUT');
-          this.$refs[name].focus()
-        }, 500);
-
+      if (name == this.name) {
+        this.$refs[name].focus()
       }
+      // if (vm.$refs[name]) {
+      //   setTimeout(() => {
+      //     console.log('INSIDE TIMEOUT');
+      //     this.$refs[name].focus()
+      //   }, 500);
+      //
+      // }
     })
   },
 

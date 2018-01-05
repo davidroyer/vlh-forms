@@ -1,6 +1,7 @@
 <template>
   <!-- <transition name="slide-fade" mode="out-in" appear> -->
   <div class="step">
+    <!-- <button @click.prevent="testFocus">Set Focus</button> -->
     <slot>
       <p>This should not show up unless theres nothing inside component in parent</p>
     </slot>
@@ -35,6 +36,11 @@ export default {
         this.$bus.$emit('set-focus', this.firstField)
       })
     }
+  },
+  methods: {
+    testFocus () {
+      console.log(this);
+    }
   }
 }
 </script>
@@ -47,8 +53,10 @@ export default {
 .stepFormProgress {
   display: flex;
   justify-content: space-around;
+  justify-content: space-between;
   flex-flow: row wrap;
   margin: 1em 0;
+
   .stepProgress {
     padding: .5em;
     transition: .25s ease;
@@ -72,6 +80,39 @@ export default {
         color: #444;
       }
     }
+  }
+}
+
+.light {
+  .stepFormProgress {
+    color: #f9f9f9 !important;
+
+    .stepProgress {
+
+      &.currentStep {
+        border-bottom: 2px solid #f9f9f9;
+      }
+      &.completedStep:after {
+        color: #f9f9f9;
+      }
+    }
+
+  }
+}
+
+.dark {
+  color: #222 !important;
+
+  .stepFormProgress {
+    color: #222 !important;
+
+    .stepProgress {
+
+      &.currentStep {
+        border-bottom: 2px solid #222;
+      }
+    }
+
   }
 }
 </style>
